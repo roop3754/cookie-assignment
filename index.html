@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Management</title>
+    <link rel="stylesheet" href="./assets/styles/styles.css">
+    <script src="./assets/script/app.js" defer></script>
+</head>
+<body>
+
+    <div class="overlay"></div>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Cookie</h1>
+            <p>
+                A <span class="red">cookie</span> is a small text file, often <span class="orange">containing</span> a unique ID, sent by a <span class="yellow">website</span> and stored 
+                <span class="pink">locally</span> on a user's <span class="blue">web browser</span>. These <span class="red">files</span> help websites 
+                <span class="green">recognize</span> users, remember preferences (like login status or shopping cart items), and track behavior across <span class="red">sessions</span> to improve site <span class="light-green">functionality</span>
+            </p>
+        </div>
+    </section>
+    <section id="consentDialog" class="modal">
+        <h2>Cookie Settings</h2>
+        <p>We use cookies to enhance your experience by storing device and browser information.</p>
+        <div class="modal-buttons">
+            <button id="acceptAll" class="btn-primary">Accept All</button>
+            <button id="openSettings" class="btn-secondary">Settings</button>
+        </div>
+    </section>
+
+    <section id="settingsDialog" class="modal">
+        <h2>Preferences</h2>
+        <div class="setting-item">
+            <span>Browser Info</span>
+            <input type="checkbox" id="cookieBrowser" checked>
+        </div>
+        <div class="setting-item">
+            <span>Operating System</span>
+            <input type="checkbox" id="cookieOS" checked>
+        </div>
+        <div class="setting-item">
+            <span>Screen Dimensions</span>
+            <input type="checkbox" id="cookieScreen" checked>
+        </div>
+        <div class="modal-buttons">
+            <button id="saveSettings" class="btn-primary">Save Choices</button>
+            <button id="rejectAll" class="btn-danger">Reject All</button>
+        </div>
+    </section>
+
+</body>
+</html>
+
