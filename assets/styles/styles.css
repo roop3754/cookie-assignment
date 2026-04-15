@@ -1,4 +1,9 @@
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -60,45 +65,113 @@ body {
 
 /* --- Overlay (The Dark Background Layer) --- */
 .overlay {
-    display: none; 
+    display: none; /* Hidden by default */
     position: fixed;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.85);
-}
-/* --- Basic Setup & Reset --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    backdrop-filter: blur(4px); /* Blurs the content behind the modal */
 }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f2f5;
-    color: #1c1e21;
+/* --- Modals (The popup boxes) --- */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);    
+    background: #ffffff;
+    color: #333;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 420px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    z-index: 1000; /* Stays above the overlay */
 }
 
-/* --- Hero Banner --- */
-.hero {
-    height: 100dvh;
-    background-color: #000;
-    color: #fff;
+/* Toggle visibility via JavaScript */
+.modal.visible, 
+.overlay.visible {
+    display: block;
+}
+
+.modal h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #111;
+}
+
+.modal p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+/* --- Settings List inside Modal --- */
+.setting-item {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    padding: 0 15%;
-    text-align: center;
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
 }
 
-.hero-content h1 {
-    font-size: 50px;
-    margin-bottom: 10px;
+.setting-item:last-of-type {
+    border-bottom: none;
 }
 
-.hero-content p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    max-width: 800px;
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* --- Buttons --- */
+.modal-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 1.5rem;
+}
+
+button {
+    padding: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 6px;
+    flex: 1;
+    transition: all 0.2s ease;
+    border: 1px solid #ccc;
+    font-size: 0.9rem;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background-color: #e2e6ea;
+}
+
+.btn-danger {
+    background-color: #fff;
+    color: #dc3545;
+    border: 1px solid #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #dc3545;
+    color: #fff;
 }
